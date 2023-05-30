@@ -1,0 +1,10 @@
+select count(*) from kupci where ime='Tomislav';
+
+-- tablici kupci dodati kolonu spol bit
+alter table kupci add spol bit;
+--Svim kupcima kojima ime završava na slovo a staviti spol na 1
+update kupci set spol=1 where trim(ime)  like '%a';
+--Svim kupcima kojima ime ne završava na slovo a staviti spol na 0
+update kupci set spol=0 where trim(ime) not like '%a';
+
+
