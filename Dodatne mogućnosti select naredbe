@@ -1,0 +1,132 @@
++-- slaganje rezultata
+select * from kupci
+where prezime like 'AB%'
+order by prezime, ime;
+
+
+select * from kupci
+where prezime like 'AB%'
+order by 2 desc,3;
+
+
+select top 10 * from kupci
+where ime like '%nt%'
+and prezime not like 'F%';
+
+select top 10 percent * from kupci
+where ime like '%nt%'
+and prezime not like 'F%';
+
+
+select ime, prezime from kupci
+where mjesto=18031;
+
+select 
+concat(trim(ime),' ', trim(prezime)) as imeprezime,
+'Osijek' as mjesto
+from kupci
+where mjesto=18031
+union
+select 
+concat(trim(ime),' ', trim(prezime)) as imeprezime,
+'Donji Miholjac' as mjesto
+from kupci
+where mjesto=2763;
+
+-- Islistajte sve preilice suđa
+select top 1 * from Artikli;
+
+select * from Artikli where kratkiNaziv like '%perilica%'
+and dugiNaziv like '%posu%';
+
+select * from Artikli where
+concat(kratkiNaziv,duginaziv) like '%perili%posu%';
+
+
+-- koliko tablica ima redova
+select count(*) from kupci;
+
+
+select count(*) from ArtikliNaPrimci;
+
+select top 10 * from ArtikliNaPrimci;
+
+select distinct artikl from ArtikliNaPrimci
+order by 1;
+
+select count(*) from artikli;
+
+-- pronaći artikle koje nismo nikada nabavili
+select * from artikli where sifra not in
+(select distinct artikl from ArtikliNaPrimci);
+
+-- obrišite artikle koje nismo nikada nabavili
+delete from Artikli where sifra in (79102,90661);
+
+-- zadnja šifra kupca
+select top 1 sifra from Kupci order by 1 desc;
+
+-- Unesite sebe kao kupca
+
+
+-- tablici kupci dodati kolonu oib
+alter table kupci add  oib char(11);
+select top 10 concat('>',oib,'<') from Kupci;
+update kupci set oib=' ';
+alter table kupci ALTER COLUMN oib char(11) not null;
+
+-- koliko ima kupaca iz Osijeka?
+select top 1 * from kupci;
+select * from mjesta where naziv like '%osijek%';
+select count(*) from kupci where mjesto=45691;
+
+
+select top 10 primka, kolicina*cijena as iznos 
+from ArtikliNaPrimci;
+
+select sum(kolicina*cijena) from ArtikliNaPrimci
+where primka=14;
+
+select min(cijena) from artikli;
+
+select * from Artikli where cijena=0.04;
+
+select max(cijena) from artikli;
+
+select *,cijena/7.5345 as EUR from Artikli where cijena=66890;
+
+-- ukupni iznosi na svim primkama
+select primka, sum(cijena*kolicina)as iznos from ArtikliNaPrimci
+group by primka
+having sum(cijena*kolicina)>10000000
+order by 2 desc;
+
+-- pronađite naziv dobavljača koji je dostavio najveći iznos
+-- po jednoj primci
+select * from Primke where sifra=15853;
+select * from Dobavljaci where sifra=560;
+select * from mjesta where sifra=42633;
+select * from Opcine where sifra=5312;
+select * from Zupanije where sifra=18;
+
+-- U artikle dodajte svoj mobitel
+
+select * from Usluge
+-- tablici usluge dodajte kolonu jedinicamjere i svim uslugama
+-- stavite vrijednost za jedinicu mjere sat
+
+-- ispravite naziv usluge Cišcenje                                          
+
+-- Koliko kupaca se zove kao Vi?
+select count(*) from kupci where ime='Tomislav';
+
+-- tablici kupci dodati kolonu spol bit
+--Svim kupcima kojima ime završava na slovo a staviti spol na 1
+--Svim kupcima kojima ime ne završava na slovo a staviti spol na 0
+
+
+
+
+
+
+
