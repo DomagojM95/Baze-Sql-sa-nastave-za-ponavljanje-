@@ -1,0 +1,109 @@
+@@ -12,7 +12,7 @@ SELECT SIFRA,NAZIV,SIFRA FROM SMJER;
+
+select *,naziv, * from smjer;
+
+-- u select listi se mo�e nalaziti
+-- u select listi se mo�e nalaziti
+-- *, naziv kolone
+-- konstanta
+select naziv, 'Osijek', 2 from smjer;
+@ -27,25 +27,25 @@ select naziv, getdate() from smjer;
+
+select upper(naziv) as smjer, getdate() as datum from smjer;
+
+-- ispi�ite imena i prezimena polaznika
+-- ispi�ite imena i prezimena polaznika
+select ime, prezime from polaznik;
+
+
+-- filtriranje redova
+select * from polaznik;
+
+-- od pro�li puta
+-- od pro�li puta
+select * from polaznik where sifra=2;
+
+-- u where dijelu se nalaze operatori
+-- Operatori uspore�ivanja
+-- Operatori uspore�ivanja
+-- = != (<>) < > <= >=
+select * from polaznik where sifra<>2;
+select * from polaznik where sifra>2;
+select * from polaznik where sifra<=2;
+select * from polaznik where ime='Luka';
+
+-- logi�ki operatori -> �itati: https://i.ytimg.com/vi/7dvqfpXEjdg/maxresdefault.jpg
+-- logi�ki operatori -> �itati: https://i.ytimg.com/vi/7dvqfpXEjdg/maxresdefault.jpg
+-- and or not
+select * from polaznik where sifra>2 and sifra<5;
+
+@ -54,7 +54,7 @@ select * from polaznik where sifra=2 or sifra=3;
+select * from polaznik where not (sifra>3 and sifra<5);
+
+select * from polaznik where
+ime='Luka' and prezime='Bu�i�';
+ime='Luka' and prezime='Bu�i�';
+
+-- izlistajte sve polaznike koji se ne zovu Luka
+
+@ -83,5 +83,61 @@ select * from smjer where cijena is not null;
+
+
+
+-- baza knjižnica (malaBaza.sql)
+use knjiznica;
+
+-- koliko ima autora koji se zovu kao ja
+
+select * from autor where ime='Tomislavac';
+
+-- Cura ostavila dečka
+-- Ovaj došao u knjižnicu i želi čitati o ljubavi
+-- Što mu preporučate
+
+select * from katalog where naslov like '%ljubav%'
+and sifra in (2938,2680,2660);
+
+-- Nađite autore rođene 1980 godine
+-- i da su ženski autor
+select * from autor where datumrodenja
+between '1980-01-01' and '1980-12-31'
+and ime like '%a';
+
+-- Izlistajte prezimena autora za koje ne zma datum rođenja
+select prezime from autor where datumrodenja is null;
+
+-- Dodajte sebe kao autora
+
+select * from autor;
+insert into autor(sifra,ime,prezime,datumrodenja)
+values (4,'Tomislav','Jakopec','1980-12-07');
+
+select * from izdavac;
+-- Obrišite izdavača Grad Osijek
+delete from katalog where izdavac=390;
+delete from izdavac where sifra=390;
+
+create database northwind;
+use northwind;
+-- izvesti skriptu instnwnd.sql
+
+-- Tko su glavni šefovi?
+select * from Employees where ReportsTo is null;
+
+select * from Employees where EmployeeID=1;
+
+-- izlistajte sve proizvode koji su jeftiniji od 100 $
+
+select * from Products where UnitPrice<100;
+
+-- Baza svaštara
+-- Ime u svatove i želim kupiti poklon
+use svastara;
+
+select * from Artikli where kratkiNaziv like '%lampa%';
+
+--Cijena artikala je iskazana u kunama
+-- prebacite cijenu na EUR
+
+
