@@ -1,0 +1,37 @@
+insert into grupa (naziv,smjer,datumpocetka)
+values ('JP28',2,'2023-04-26 19:00:00');
+
+
+-- 1 do 25
+insert into polaznik(ime,prezime,oib,email)
+values 
+('Luka','Bušić',null,'busic.luka1@gmail.com'),
+('Domagoj','Marković',null,'markovicdomagoj1995@gmail.com'),
+('Andrija','Kruhoberec',null,'akruhoberec1@outlook.com'),
+('Vedran','Džanko',null,'vedran.dzanko@gmail.com'),
+('Antonio','Majić', null, 'antonio.majich@gmail.com'),
+('Lana','Jelenić',null,'lana.jelenic@gmail.com'),
+('Jasenka','Augustinović',null,'jaugustinovic85@gmail.com'),
+('Domagoj','Ljubičić',null,'dljubicic2@gmail.com'),
+('Leo','Lovenjak',null,'leo.lovenjak107@gmail.com'),
+('Leon','Bičak',null,'lbicak96@gmail.com'),
+('Katarina','Pavličević',null,'katarina.pavlicevic5@gmail.com'),
+('Darko','Kučan',null,'dkucan61@gmail.com'),
+('Patrik','Gomerčić',null,'patrik.gomercic3@gmail.com'),
+('Antonio','Šubarić',null,'antonio.subaric98@gmail.com'),
+('Srđan','Filipović',null,'srdjanfilipovic991@gmail.com'),
+('Jakob','Brkić',null,'jakobbrkic97@gmail.com'),
+('Alen','Oroz',null,'alen.oroz1@gmail.com'),
+('Ivor','Ćelić',null,'ivorcelic@gmail.com'),
+('Anja','Andonovski',null,'andonovski.anja@gmail.com'),
+('Bruno','Bušić',null,'brunobusic20@gmail.com'),
+('Karlo','Perić',null,'karlocar25@gmail.com'),
+('Kristijan','Beriša',null,'k_berisa@hotmail.com'),
+('Valentin','Mijatović',null,'mijatovic.valentin123@gmail.com'),
+('Ivan','Angebrandt',null,'ivan.angebrandt@gmail.com'),
+('Luka','Mrđa',null,'luka.mrda@yahoo.com');
+
+
+
+
+
